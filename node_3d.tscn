@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://belgsbrr2lvpa"]
 
-[sub_resource type="GDScript" id="GDScript_4xowi"]
+[sub_resource type="GDScript" id="GDScript_nslhu"]
 script/source = "extends CharacterBody3D
 
 
@@ -43,9 +43,12 @@ size = Vector3(10, 0.2, 10)
 
 [node name="Node3D" type="Node3D" unique_id=1579705753]
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1555000697]
+transform = Transform3D(1, 0, 0, 0, -0.817394, 0.5760791, 0, -0.5760791, -0.817394, 0, 4.3326306, -5.541318)
+
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1654917867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
-script = SubResource("GDScript_4xowi")
+script = SubResource("GDScript_nslhu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1892706151]
 shape = SubResource("BoxShape3D_yf5fn")
@@ -53,9 +56,6 @@ shape = SubResource("BoxShape3D_yf5fn")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D" unique_id=1150375098]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 mesh = SubResource("BoxMesh_g4v7s")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CharacterBody3D" unique_id=1555000697]
-transform = Transform3D(1, 0, 0, 0, -0.817394, 0.5760791, 0, -0.5760791, -0.817394, 0, 4.1826305, -5.541318)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=240526631]
 
