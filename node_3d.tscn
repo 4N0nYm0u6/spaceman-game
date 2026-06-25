@@ -1,21 +1,39 @@
 [gd_scene format=3 uid="uid://belgsbrr2lvpa"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(0.25, 0.25, 0.25)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
-size = Vector3(3, 3, 3)
+size = Vector3(10, 0.2, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
 
 [node name="Node3D" type="Node3D" unique_id=1579705753]
 
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1654917867]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1892706151]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/CollisionShape3D" unique_id=1150375098]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="CharacterBody3D" unique_id=1555000697]
+transform = Transform3D(1, 0, 0, 0, -0.817394, 0.5760791, 0, -0.5760791, -0.817394, 0, 4.1826305, -5.541318)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=240526631]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=120628895]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1032715, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("BoxShape3D_57qmd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=699599402]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0, 0, 0)
 mesh = SubResource("BoxMesh_yf5fn")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=116187620]
-transform = Transform3D(1, 0, 0, 0, 0.9763616, 0.21614374, 0, -0.21614374, 0.9763616, 4.7683716e-07, 3.3194208, 7.5660996)
+transform = Transform3D(1, 0, 0, 0, 0.9763616, 0.21614374, 0, -0.21614374, 0.9763616, 4.7683716e-07, 0.5814309, 1.4658575)
