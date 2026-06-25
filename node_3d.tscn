@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://belgsbrr2lvpa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
+size = Vector3(3, 3, 3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+
+[node name="Node3D" type="Node3D" unique_id=1579705753]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=240526631]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=120628895]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1032715, 0, 0)
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D" unique_id=699599402]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=116187620]
+transform = Transform3D(1, 0, 0, 0, 0.9763616, 0.21614374, 0, -0.21614374, 0.9763616, 4.7683716e-07, 3.3194208, 7.5660996)
