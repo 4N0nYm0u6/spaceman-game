@@ -20,14 +20,14 @@ func _physics_process(delta: float) -> void:
 	var x_input: float = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
 	var velocity_weight: float = delta * (acceleration1 if x_input else frictionx)
 	velocity.x = lerp(velocity.x, x_input * speed, velocity_weight)
+	var z_input: float = Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
+	var velocity_weight_Z: float = delta * (acceleration1 if z_input else frictionz)
+	velocity.z = lerp(velocity.z, z_input * speed, velocity_weight_Z)
 	
 	if Input.is_action_pressed(\"ui_accept\"):
 		velocity.y = JUMP_VELOCITY
 	if Input.is_action_pressed(\"shift\"):
 		velocity.y = -JUMP_VELOCITY
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-		#print(\"direction is triggered\") #testing code
 
 	move_and_slide()
 "
