@@ -2,33 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bjgpvccacbn30" path="res://0_F9GANogspBRfY3sR-2111448363.jpg" id="1_a202f"]
 
-[sub_resource type="GDScript" id="GDScript_nslhu"]
-script/source = "extends CharacterBody3D #this tells to the code that is part of CharacterBody3D NOT THE NODES OF IT
-
-
-const SPEED = 1.0 #speed
-const JUMP_VELOCITY = 0.2 #how high the jump is
-
-var speed: float = 67.0
-var acceleration1: float = 0.2
-var acceleration2: float = 0.2
-var frictionx: float = 5.0
-var frictionz: float = 5.0
+[sub_resource type="GDScript" id="GDScript_m5c7t"]
+script/source = "extends CharacterBody3D
+var speed : float = 1200
+var accel : float = 100
 
 func _physics_process(delta: float) -> void:
-	##X axis accel
-	var x_input: float = Input.get_action_strength(\"ui_right\") - Input.get_action_strength(\"ui_left\")
-	var velocity_weight: float = delta * (acceleration1 if x_input else frictionx)
-	velocity.x = lerp(velocity.x, x_input * speed, velocity_weight)
-	var z_input: float = Input.get_action_strength(\"ui_down\") - Input.get_action_strength(\"ui_up\")
-	var velocity_weight_Z: float = delta * (acceleration2 if z_input else frictionz)
-	velocity.z = lerp(velocity.z, z_input * speed, velocity_weight_Z)
-	
-	if Input.is_action_pressed(\"ui_accept\"):
-		velocity.y = JUMP_VELOCITY
-	if Input.is_action_pressed(\"shift\"):
-		velocity.y = -JUMP_VELOCITY
-
+	var x_input
 	move_and_slide()
 "
 
@@ -56,7 +36,7 @@ transform = Transform3D(1, 0, 0, 0, -0.817394, 0.5760791, 0, -0.5760791, -0.8173
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1654917867]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
-script = SubResource("GDScript_nslhu")
+script = SubResource("GDScript_m5c7t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1892706151]
 shape = SubResource("BoxShape3D_yf5fn")
