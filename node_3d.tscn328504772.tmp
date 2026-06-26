@@ -6,14 +6,11 @@
 script/source = "extends CharacterBody3D #this tells to the code that is part of CharacterBody3D NOT THE NODES OF IT
 
 
-const SPEED = 5.0 #speed
-const JUMP_VELOCITY = 4.5 #how high the jump is
-
-
-func _physics_process(delta: float) -> void:
+const SPEED = 1.0 #speed
+const JUMP_VELOCITY = 1.0 #how high the jump is
 
 	# Handle jump.
-	if Input.is_action_just_pressed(\"ui_accept\"):
+if Input.is_action_just_pressed(\"ui_accept\"):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -25,6 +22,8 @@ func _physics_process(delta: float) -> void:
 		velocity.z = direction.z * SPEED
 		velocity.y = direction.y * SPEED
 		#print(\"direction is triggered\") #testing code
+
+		#print(\"direction is not triggered\") #testing code
 
 	move_and_slide()
 "
